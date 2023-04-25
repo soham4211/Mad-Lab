@@ -78,7 +78,7 @@
 pubsec.yaml
 
 
-name: exp6
+name: exp6       //name same as project name 
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
