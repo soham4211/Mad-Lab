@@ -1,0 +1,89 @@
+import 'package:expmad/secondpage.dart';
+import 'package:flutter/material.dart';
+
+
+void main(){
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: FirstPage(),
+    );
+  }
+}
+
+class FirstPage extends StatelessWidget {
+  const FirstPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.pink,
+          title: Text('Experiment - 7'),
+        ),
+        body: Container(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('First Page Here',style: TextStyle(fontSize: 23)),
+                  OutlinedButton.icon(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> SecondPage()));
+                    },
+                    label: Text('Next Page', style: TextStyle(color: Colors.pink)), icon: Icon(Icons.arrow_forward, color: Colors.pink),)
+                ],
+              ),
+            )
+        ),
+      ),
+    );
+  }
+}
+
+/////////////////  Second Page ////////////////////
+
+import 'package:flutter/material.dart';
+
+import 'main.dart';
+
+class SecondPage extends StatelessWidget {
+  const SecondPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.pink,
+          title: Text('Experiment - 7'),
+        ),
+        body: Container(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Second Page Here',style: TextStyle(fontSize: 23)),
+                  OutlinedButton.icon(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> FirstPage()));
+                    },
+                    label: Text('Previous Page',style: TextStyle(color: Colors.pink)), icon: Icon(Icons.arrow_back, color: Colors.pink),)
+                ],
+              ),
+            )
+        ),
+      ),
+    );
+  }
+}
