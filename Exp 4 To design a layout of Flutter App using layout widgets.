@@ -1,0 +1,68 @@
+import 'package:flutter/material.dart';
+void main() => runApp(const MyApp());
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final List<String> items =
+    List<String>.generate(4, (i) => "List ${i + 1}");
+    return MaterialApp(
+      title: 'Roll No. 57, Practical Exam',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Roll No. 2, Practical Exam'),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Grid View:',
+              ),
+              const SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Container(
+                    width: 80,
+                    height: 80,
+                    color: Colors.blue,
+                  ),
+                  Container(
+                    width: 80,
+                    height: 80,
+                    color: Colors.green,
+                  ),
+                  Container(
+                    width: 80,
+                    height: 80,
+                    color: Colors.red,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                '',
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'ListView:',
+              ),
+              const SizedBox(height: 10),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: items.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                    title: Text(items[index]),
+                    tileColor: index % 2 == 0 ? Colors.cyanAccent : Colors.grey,
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
